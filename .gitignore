@@ -40,7 +40,8 @@ desktop.ini
 htmlcov/
 .coverage
 
-node_modules/
+node
+_modules/
 .next/
 dist/
 build/
