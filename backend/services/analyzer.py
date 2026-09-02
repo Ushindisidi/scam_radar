@@ -37,7 +37,7 @@ def summarize_input(input_text: str) -> str:
     try:
         client = get_groq_client()
         response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model="llama-3.1-8b-instant",
             messages=[{
                 "role": "user",
                 "content": f"""Extract only the key facts from this text that would help determine if it is a scam.
