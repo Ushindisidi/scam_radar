@@ -37,7 +37,7 @@ def summarize_input(input_text: str) -> str:
     try:
         client = get_groq_client()
         response = client.chat.completions.create(
-            model="llama-3.1-70b-versatile",
+            model="openai/gpt-oss-120b",
             messages=[{
                 "role": "user",
                 "content": f"""Extract only the key facts from this text that would help determine if it is a scam.
@@ -176,7 +176,7 @@ Be precise, cautious, and evidence-driven.
 
         client = get_groq_client()
         response = client.chat.completions.create(
-            model="llama-3.1-70b-versatile",
+            model="openai/gpt-oss-120b",
             messages=[{"role": "user", "content": prompt}],
             temperature=0.1
         )
