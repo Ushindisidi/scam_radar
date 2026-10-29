@@ -235,11 +235,11 @@ export default function ScamRadar() {
   );
 
   const renderAnalyze = () => (
-    <div style={{ padding: isMobile ? "16px" : "28px 32px" }}>
+    <div style={{ padding: isMobile ? "16px" : "28px 32px", width: "100%", boxSizing: "border-box" }}>
       <div style={{ display: "grid", gridTemplateColumns: isMobile ? "minmax(0, 1fr)" : "minmax(0, 1fr) 400px", gap: 20, alignItems: "start" }}>
 
         {/* Left */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 16, minWidth: 0 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 16, minWidth: 0, width: "100%" }}>
 
           {/* Input card */}
           <div style={{ background: T.card, border: `1px solid ${T.cardBorder}`, borderRadius: 16, padding: isMobile ? 16 : 24 }}>
@@ -425,7 +425,7 @@ export default function ScamRadar() {
           background: T.card, border: `1px solid ${T.cardBorder}`,
           borderRadius: 16, padding: isMobile ? 16 : 24,
           position: isMobile ? "relative" : "sticky", top: 20,
-          minWidth: 0,
+          minWidth: 0, width: "100%", boxSizing: "border-box"
         }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
             <h3 style={{ fontSize: 14, fontWeight: 700, color: T.text, margin: 0 }}>Analysis Result</h3>
@@ -456,7 +456,7 @@ export default function ScamRadar() {
           )}
 
           {result && vc && (
-            <div style={{ animation: "fadeIn 0.4s ease" }}>
+            <div style={{ animation: "fadeIn 0.4s ease", width: "100%", boxSizing: "border-box" }}>
               {/* Verdict */}
               <div style={{ background: vBg, border: `1px solid ${vBorder}`, borderRadius: 12, padding: 18, marginBottom: 16, display: "flex", alignItems: "center", gap: 14 }}>
                 <div style={{ width: 48, height: 48, borderRadius: 10, background: vColor + "20", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 24, color: vColor }}>
@@ -487,7 +487,7 @@ export default function ScamRadar() {
               </div>
 
               {/* Confidence + Risk */}
-              <div style={{ display: "flex", gap: 8, marginBottom: 14 }}>
+              <div style={{ display: "flex", gap: 8, marginBottom: 14, width: "100%", boxSizing: "border-box" }}>
                 <div style={{ flex: 1, background: dark ? "rgba(255,255,255,0.03)" : "#f8fafc", border: `1px solid ${T.cardBorder}`, borderRadius: 8, padding: "10px 12px", minWidth: 0 }}>
                   <div style={{ fontSize: 10, color: T.textMuted, marginBottom: 4 }}>Confidence</div>
                   <div style={{ fontSize: 14, fontWeight: 700, color: vColor }}>{result.analysis.confidence}</div>
@@ -499,37 +499,37 @@ export default function ScamRadar() {
               </div>
 
               {/* Red flags */}
-              <div style={{ background: dark ? "rgba(239,68,68,0.06)" : "#fef2f2", border: `1px solid ${dark ? "rgba(239,68,68,0.2)" : "#fecaca"}`, borderRadius: 10, padding: 14, marginBottom: 10 }}>
+              <div style={{ background: dark ? "rgba(239,68,68,0.06)" : "#fef2f2", border: `1px solid ${dark ? "rgba(239,68,68,0.2)" : "#fecaca"}`, borderRadius: 10, padding: 14, marginBottom: 10, width: "100%", boxSizing: "border-box" }}>
                 <div style={{ fontSize: 11, fontWeight: 700, color: dark ? "#f87171" : "#dc2626", marginBottom: 8 }}>🚩 Red Flags</div>
                 {result.analysis.red_flags.length > 0 ? result.analysis.red_flags.map((f, i) => (
-                  <div key={i} style={{ display: "flex", gap: 6, alignItems: "flex-start", marginBottom: 5 }}>
+                  <div key={i} style={{ display: "flex", gap: 6, alignItems: "flex-start", marginBottom: 5, width: "100%", boxSizing: "border-box" }}>
                     <span style={{ color: dark ? "#f87171" : "#dc2626", fontSize: 8, marginTop: 4, flexShrink: 0 }}>●</span>
-                    <span style={{ fontSize: 12, color: T.textSec, lineHeight: 1.5, overflowWrap: "break-word", wordBreak: "break-word" }}>{f}</span>
+                    <span style={{ flex: 1, minWidth: 0, fontSize: 12, color: T.textSec, lineHeight: 1.5, overflowWrap: "break-word", wordBreak: "break-word" }}>{f}</span>
                   </div>
                 )) : <span style={{ fontSize: 12, color: T.textMuted }}>None detected</span>}
               </div>
 
               {/* Positive signals */}
-              <div style={{ background: dark ? "rgba(34,197,94,0.06)" : "#f0fdf4", border: `1px solid ${dark ? "rgba(34,197,94,0.2)" : "#bbf7d0"}`, borderRadius: 10, padding: 14, marginBottom: 10 }}>
+              <div style={{ background: dark ? "rgba(34,197,94,0.06)" : "#f0fdf4", border: `1px solid ${dark ? "rgba(34,197,94,0.2)" : "#bbf7d0"}`, borderRadius: 10, padding: 14, marginBottom: 10, width: "100%", boxSizing: "border-box" }}>
                 <div style={{ fontSize: 11, fontWeight: 700, color: dark ? "#34d399" : "#16a34a", marginBottom: 8 }}>✅ Positive Signals</div>
                 {result.analysis.positive_signals.length > 0 ? result.analysis.positive_signals.map((s, i) => (
-                  <div key={i} style={{ display: "flex", gap: 6, alignItems: "flex-start", marginBottom: 5 }}>
+                  <div key={i} style={{ display: "flex", gap: 6, alignItems: "flex-start", marginBottom: 5, width: "100%", boxSizing: "border-box" }}>
                     <span style={{ color: dark ? "#34d399" : "#16a34a", fontSize: 8, marginTop: 4, flexShrink: 0 }}>●</span>
-                    <span style={{ fontSize: 12, color: T.textSec, lineHeight: 1.5, overflowWrap: "break-word", wordBreak: "break-word" }}>{s}</span>
+                    <span style={{ flex: 1, minWidth: 0, fontSize: 12, color: T.textSec, lineHeight: 1.5, overflowWrap: "break-word", wordBreak: "break-word" }}>{s}</span>
                   </div>
                 )) : <span style={{ fontSize: 12, color: T.textMuted }}>None found</span>}
               </div>
 
               {/* Summary */}
-              <div style={{ background: dark ? "rgba(59,130,246,0.06)" : "#f0f9ff", border: `1px solid ${dark ? "rgba(59,130,246,0.2)" : "#bae6fd"}`, borderRadius: 10, padding: 14, marginBottom: 10 }}>
+              <div style={{ background: dark ? "rgba(59,130,246,0.06)" : "#f0f9ff", border: `1px solid ${dark ? "rgba(59,130,246,0.2)" : "#bae6fd"}`, borderRadius: 10, padding: 14, marginBottom: 10, width: "100%", boxSizing: "border-box" }}>
                 <div style={{ fontSize: 11, fontWeight: 700, color: dark ? "#60a5fa" : "#0284c7", marginBottom: 8 }}>≡ Summary</div>
-                <p style={{ fontSize: 12, color: T.textSec, lineHeight: 1.7, margin: 0, overflowWrap: "break-word", wordBreak: "break-word" }}>{result.analysis.summary}</p>
+                <p style={{ fontSize: 12, color: T.textSec, lineHeight: 1.7, margin: 0, overflowWrap: "break-word", wordBreak: "break-word", width: "100%" }}>{result.analysis.summary}</p>
               </div>
 
               {/* Recommendation */}
-              <div style={{ background: vBg, border: `1px solid ${vBorder}`, borderRadius: 10, padding: 14 }}>
+              <div style={{ background: vBg, border: `1px solid ${vBorder}`, borderRadius: 10, padding: 14, width: "100%", boxSizing: "border-box" }}>
                 <div style={{ fontSize: 11, fontWeight: 700, color: vColor, marginBottom: 8 }}>⚡ Recommendation</div>
-                <p style={{ fontSize: 12, color: T.textSec, lineHeight: 1.7, margin: 0, overflowWrap: "break-word", wordBreak: "break-word" }}>{result.analysis.recommendation}</p>
+                <p style={{ fontSize: 12, color: T.textSec, lineHeight: 1.7, margin: 0, overflowWrap: "break-word", wordBreak: "break-word", width: "100%" }}>{result.analysis.recommendation}</p>
               </div>
             </div>
           )}
