@@ -65,9 +65,9 @@ def search_text(input_text: str) -> dict:
         # Search extracted companies
         for company in entities["companies"]:
             queries = [
-                f'"{company}" scam',
-                f'"{company}" reviews reddit',
-                f'"{company}" complaints',
+                f'{company} scam',
+                f'{company} reviews reddit',
+                f'{company} complaints',
             ]
             for query in queries:
                 all_results[query] = run_search(query)
@@ -75,24 +75,24 @@ def search_text(input_text: str) -> dict:
         # Search extracted domains
         for domain in entities["domains"]:
             queries = [
-                f'"{domain}" scam',
-                f'"{domain}" fraud',
+                f'{domain} scam',
+                f'{domain} fraud',
             ]
             for query in queries:
                 all_results[query] = run_search(query)
 
         # Search extracted URLs
         for url in entities["urls"]:
-            all_results[f'"{url}" scam or fraud'] = run_search(f'"{url}" scam or fraud')
+            all_results[f'{url} scam or fraud'] = run_search(f'{url} scam or fraud')
 
         # If no entities found, fall back to first 100 chars
         if not all_results:
             logger.info("No entities found, falling back to short text search")
             short_text = input_text[:100]
             queries = [
-                f'"{short_text}" scam',
-                f'"{short_text}" reviews',
-                f'"{short_text}" complaints',
+                f'{short_text} scam',
+                f'{short_text} reviews',
+                f'{short_text} complaints',
             ]
             for query in queries:
                 all_results[query] = run_search(query)
@@ -100,12 +100,12 @@ def search_text(input_text: str) -> dict:
     else:
         # Short text — search directly
         queries = [
-            f'"{input_text}" scam',
-            f'"{input_text}" reviews reddit',
-            f'"{input_text}" complaints',
-            f'"{input_text}" legit or fraud',
-            f'"{input_text}" site:trustpilot.com',
-            f'"{input_text}" site:glassdoor.com',
+            f'{input_text} scam',
+            f'{input_text} reviews reddit',
+            f'{input_text} complaints',
+            f'{input_text} legit or fraud',
+            f'site:trustpilot.com {input_text}',
+            f'site:glassdoor.com {input_text}',
         ]
         for query in queries:
             all_results[query] = run_search(query)
@@ -116,12 +116,12 @@ def search_text(input_text: str) -> dict:
 def search_url(url: str) -> dict:
     logger.info(f"Running URL search for: {url}")
     queries = [
-        f'"{url}" scam',
-        f'"{url}" reviews',
-        f'"{url}" complaints reddit',
-        f'"{url}" fraud warning',
+        f'{url} scam',
+        f'{url} reviews',
+        f'{url} complaints reddit',
+        f'{url} fraud warning',
         f'site:{url} reviews',
-        f'is "{url}" legit',
+        f'is {url} legit',
     ]
     
     all_results = {}
