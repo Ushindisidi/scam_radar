@@ -236,10 +236,10 @@ export default function ScamRadar() {
 
   const renderAnalyze = () => (
     <div style={{ padding: isMobile ? "16px" : "28px 32px" }}>
-      <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 400px", gap: 20, alignItems: "start" }}>
+      <div style={{ display: "grid", gridTemplateColumns: isMobile ? "minmax(0, 1fr)" : "minmax(0, 1fr) 400px", gap: 20, alignItems: "start" }}>
 
         {/* Left */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 16, minWidth: 0 }}>
 
           {/* Input card */}
           <div style={{ background: T.card, border: `1px solid ${T.cardBorder}`, borderRadius: 16, padding: isMobile ? 16 : 24 }}>
@@ -722,7 +722,7 @@ export default function ScamRadar() {
       )}
 
       {/* Main content */}
-      <div style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "auto", position: "relative", zIndex: 1, paddingBottom: isMobile ? 70 : 0 }}>
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", overflowY: "auto", overflowX: "hidden", position: "relative", zIndex: 1, paddingBottom: isMobile ? 70 : 0 }}>
         {/* Top bar */}
         <div style={{
           padding: isMobile ? "12px 16px" : "14px 24px",
